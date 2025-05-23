@@ -54,7 +54,7 @@ body {
   border-radius: 5px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 1s;
+  transition: max-height 1s ease;
 }
 
 #imgBox img {
@@ -89,4 +89,8 @@ body {
   100% {
     transform: translateX(0);
   }
+}
+
+.hidden {
+  display: none;
 }

@@ -1,7 +1,8 @@
-let imgBox = document.querySelector("#imgBox");
-let qrImage = document.querySelector("#qr-Image");
-let input = document.querySelector("input");
-let btn = document.querySelector("button");
+const imgBox = document.getElementById("imgBox");
+const qrImage = document.getElementById("qr-Image");
+const input = document.querySelector("input");
+const btn = document.querySelector("button");
+const topPara = document.getElementById("topPara");
 
 function genQRCode() {
   if (input.value.length > 0) {
@@ -9,6 +10,13 @@ function genQRCode() {
       "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
       input.value;
     imgBox.classList.add("show-img");
+    input.classList.add("hidden");
+    topPara.classList.add("hidden");
+
+    btn.innerText = "Generated , Click To Refresh";
+    btn.addEventListener("click", () => {
+      location.reload();
+    });
   } else {
     input.classList.add("error");
     setTimeout(() => {
